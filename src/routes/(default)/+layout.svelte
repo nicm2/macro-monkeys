@@ -4,4 +4,4 @@
   
   <Navbar/>
   
-  <slot />
+  <div class="py-16"> <slot /> </div>

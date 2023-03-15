@@ -5,7 +5,7 @@
 </script>
 
 
-<div class="navbar bg-base-100 static">
+<div class="navbar bg-base-200 p-2 fixed">
     <div class="navbar-start">
       <!-- svelte-ignore a11y-label-has-associated-control -->
       <div class="dropdown">
