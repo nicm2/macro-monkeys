@@ -14,7 +14,7 @@
 			<input bind:value={password} type="password" placeholder="Password" class="input w-full max-w-xs my-4" name="password_box" id="password_box" />
 
 			<!-- Submit Button -->
-			<input type="button" value="Login" class="btn my-4 w-full" on:click={post} />
+			<input type="button" value="Login" class="btn btn-primary my-4 w-full" on:click={post} />
 		</form>
 
 		<!-- Signup Redirect -->

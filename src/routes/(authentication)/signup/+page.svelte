@@ -19,7 +19,7 @@
     <input bind:value={confirmPassword} type="password" placeholder="Confirm Password" class="input w-full max-w-xs my-4" name="confirm_box" />
 
     <!-- Submit Button -->
-    <input type="button" value="Sign Up" class="btn my-4 w-full" on:click={post} />
+    <input type="button" value="Sign Up" class="btn btn-primary my-4 w-full" on:click={post} />
 </form>
 
 <!-- Login Redirect -->
