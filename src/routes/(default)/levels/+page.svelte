@@ -1,20 +1,24 @@
-<div class="flex w-screen h-screen justify-center">
+<div class="flex flex-col w-screen h-screen justify-center gap-10">
 
-    <div class="flex flex-col w-1/2 h-fit self-center">
-
+    <div class="flex flex-col bg-gray-700 rounded-lg shadow-xl w-96 md:w-1/2 h-fit self-center p-8">
+    
         This is a test question?
+    
+    </div>
 
-        <div class="flex w-full bg-red-500">
+    <div class="flex flex-col bg-gray-700 rounded-lg shadow-xl w-96 md:w-1/2 h-96 self-center p-8 justify-center">
 
-            <div class="bg-red-500 w-1/2">Answer 1</div>
-            <div class="bg-green-500 w-1/2">Answer 2</div>
+        <div class="flex w-full h-1/2 self-center">
+
+            <div class="btn w-1/2 h-full">Answer 1</div>
+            <div class="btn w-1/2 h-full">Answer 2</div>
 
         </div>
 
-        <div class="flex w-full">
+        <div class="flex w-full h-1/2 self-center">
 
-            <div class="bg-purple-500 w-1/2">Answer 3</div>
-            <div class="bg-yellow-500 w-1/2">Answer 4</div>
+            <div class="btn w-1/2 h-full">Answer 3</div>
+            <div class="btn w-1/2 h-full">Answer 4</div>
 
 
         </div>
