@@ -36,7 +36,7 @@
     </div>
     <div class="navbar-center hidden lg:flex">
       <ul class="menu menu-horizontal px-1">
-        <li><a href="/">Item 1</a></li>
+        <li><a href="/levels">Levels</a></li>
         <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
         <li tabindex="0">
           <!-- svelte-ignore a11y-missing-attribute -->

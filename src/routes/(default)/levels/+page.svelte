@@ -10,14 +10,16 @@
 
         <div class="flex w-full h-1/2 self-center justify-around gap-8">
 
-            <div class="flex btn w-1/2 h-full">Answer 1</div>
-            <div class="flex btn w-1/2 h-full">Answer 2</div>
+            <div class="flex btn w-1/2 h-full self-stretch">Answer 1</div>
+            
+            <div class="flex btn w-1/2 h-full self-stretch">Answer 2</div>
 
         </div>
 
         <div class="flex w-full h-1/2 self-center justify-around gap-8">
 
             <div class="flex btn w-1/2 h-full">Answer 3</div>
+
             <div class="flex btn w-1/2 h-full">Answer 4</div>
 
 
