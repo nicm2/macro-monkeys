@@ -5,7 +5,7 @@
 </script>
 
 
-<div class="navbar bg-base-200 p-2 fixed">
+<div class="navbar bg-green-800 p-2 fixed">
     <div class="navbar-start">
       <!-- svelte-ignore a11y-label-has-associated-control -->
       <div class="dropdown">
@@ -20,11 +20,14 @@
           <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
           <li tabindex="0">
             <!-- svelte-ignore a11y-missing-attribute -->
+            
+
+            <!-- Mobile Options Menu -->
             <a class="justify-between">
               Parent
               <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"/></svg>
             </a>
-            <ul class="p-2">
+            <ul class="p-2 shadow menu menu-compact dropdown-content bg-green-800 rounded-box w-fit">
               <li><a href="/">Submenu 1</a></li>
               <li><a href="/">Submenu 2</a></li>
             </ul>
@@ -32,6 +35,7 @@
           <li><a href="/">Item 3</a></li>
         </ul>
       </div>
+
       <a href="/" class="btn btn-ghost normal-case text-xl">Macro Monkeys</a>
     </div>
     <div class="navbar-center hidden lg:flex">
@@ -44,7 +48,7 @@
             Parent
             <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/></svg>
           </a>
-          <ul class="p-2">
+          <ul class="p-2 shadow menu menu-compact dropdown-content bg-green-800 rounded-box w-fit">
             <li><a href="/">Submenu 1</a></li>
             <li><a href="/">Submenu 2</a></li>
           </ul>
@@ -67,12 +71,14 @@
             <ul tabindex="0" class="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
               <li><a href="/" >Profile</a></li>
               <li><a href="/" >Settings</a></li>
-              <li><a href="/">Logout</a></li>
+              <li><a href="/" >Logout</a></li>
             </ul>
           </div>
         {:else}
+          <div class="gap-2" > 
             <a href="/login" class="btn btn-ghost">Login</a>
             <a href="/signup" class="btn btn-primary">Signup</a>
-          {/if}
+          </div>
+        {/if}
     </div>
   </div>
