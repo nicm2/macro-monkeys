@@ -14,12 +14,11 @@ export async function load({ params, fetch, page }: any) {
 		
 		return {
 			question: level.question,
+			title: level.name,
+			number: level.number,
 			answer1: level.answer1,
 			answer2: level.answer2,
 			answer3: level.answer3,
             answer4: level.answer4,
 		};
-
-
-	throw error(404);
 }
