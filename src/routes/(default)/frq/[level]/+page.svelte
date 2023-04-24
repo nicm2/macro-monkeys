@@ -5,7 +5,7 @@
     let code: String;
 
     async function RunCode () {
-        fetch("monkeybackend.rohanj.dev/api/code/attemptLevel", {
+        fetch("https://monkeybackend.rohanj.dev/api/code/attemptLevel", {
             method: 'POST',
             headers: {
             'Accept': 'application/json',

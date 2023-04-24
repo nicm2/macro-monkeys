@@ -7,7 +7,7 @@
 
     async function post() {
         // /api/login/getYourUser
-		fetch("monkeybackend.rohanj.dev/api/user/createPerson", {
+		fetch("https://monkeybackend.rohanj.dev/api/user/createPerson", {
             method: 'POST',
             headers: {
             'Accept': 'application/json',

@@ -4,7 +4,7 @@
     let password : String;
 
     async function post() {
-		fetch("monkeybackend.rohanj.dev/api/login/authenticate", {
+		fetch("https://monkeybackend.rohanj.dev/api/login/authenticate", {
             method: 'POST',
             headers: {
             'Accept': 'application/json',
