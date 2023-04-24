@@ -7,24 +7,28 @@
     async function RunCode () {
         fetch("https://monkeybackend.rohanj.dev/api/code/attemptLevel", {
             method: 'POST',
+            credentials: 'include',
             headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
             },
-            body: JSON.stringify({code: code})
+            body: JSON.stringify({levelNumber: data.levelNumber, code: code})
             })
-            .then(response => {
-                // handle the response
-            })
+            .then(response =>
+                response.json().then(data => {
+                if (data.err) alert(data.err);
+                else alert("Correct! Code runs successfully!");
+            }).catch(e => { alert("Error Occurred!")})
+            )
             .catch(error => {
-                // handle the error
-            });
+            alert("Error Occurred!");
+            })
     }
         
 
 </script>
 
-<div class="flex flex-col w-screen h-screen justify-start py-24 gap-10 bg-green-600">
+<div class="flex flex-col w-screen h-full justify-start py-24 gap-10 bg-green-600">
 
     <div class="flex self-center w-96 md:w-1/2 gap-8 h-fit">
 
@@ -40,7 +44,7 @@
     <div class="flex flex-col bg-green-700 border-green-800 border-2 rounded-lg shadow-xl w-96 md:w-1/2 h-fit self-center p-8">
     
         <!-- Question for quiz -->
-        <p>{data.question}</p>
+        <p style="white-space: pre-line;">{data.question}</p>
     
     </div>
 
