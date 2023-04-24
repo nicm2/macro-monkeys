@@ -13,7 +13,7 @@
             body: JSON.stringify({name: name, password: password})
             })
             .then(response => {
-                // handle the response
+                console.log("in");
             })
             .catch(error => {
                 // handle the error
