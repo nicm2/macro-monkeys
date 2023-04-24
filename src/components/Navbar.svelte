@@ -15,7 +15,8 @@
             })
             .then(response =>
                 response.json().then(data => {
-                authenticated = true;
+                  if (data.err) alert(data.err);
+                  else authenticated = true;
             }).catch(e => { alert("Error Occurred!")})
             )
             .catch(error => {
