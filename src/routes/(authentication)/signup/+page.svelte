@@ -9,21 +9,22 @@
         // /api/login/getYourUser
 		fetch("https://monkeybackend.rohanj.dev/api/user/createPerson", {
             method: 'POST',
+            credentials: 'include',
             headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
             },
             body: JSON.stringify({name: username, password: password})
             })
-            .then(response => {
-                console.log("in");
-                if (response.status != 200) {
-                    response.json().then(d => alert(d.err))
-                }
-            })
+            .then(response =>
+                response.json().then(data => {
+                if (data.err) alert(data.err);
+                else window.location.href = '/';
+            }).catch(e => { })
+            )
             .catch(error => {
-                // handle the error
-            });
+            alert("error occurred!");
+            })
 	}
 
 </script>
