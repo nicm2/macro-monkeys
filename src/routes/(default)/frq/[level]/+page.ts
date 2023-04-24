@@ -5,7 +5,7 @@ export function load({ params }) {
 	
 	let title: String;
 	let question: String;
-	let levelNumber: String;
+	let levelNumber: number;
 
 	switch (params.level) {
 		case "2018A":
@@ -46,7 +46,7 @@ export function load({ params }) {
 			
 			}
 			`;
-			levelNumber = "1";
+			levelNumber = 1;
 			break;
 		default:
 			throw error(404, 'Not found');

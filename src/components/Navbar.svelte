@@ -1,7 +1,47 @@
 <script>
 
-    let authenticated = false;
+  let authenticated = false;
+  
+  Fetch();
 
+  async function Fetch () {
+        fetch("https://monkeybackend.rohanj.dev/api/login/getYourUser", {
+            method: 'POST',
+            credentials: 'include',
+            headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+            }
+            })
+            .then(response =>
+                response.json().then(data => {
+                authenticated = true;
+            }).catch(e => { alert("Error Occurred!")})
+            )
+            .catch(error => {
+            alert("Error Occurred!");
+            })
+    }
+
+    async function Logout () {
+        fetch("https://monkeybackend.rohanj.dev/api/login/logout", {
+            method: 'POST',
+            credentials: 'include',
+            headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+            }
+            })
+            .then(response =>
+                response.json().then(data => {
+                authenticated = false;
+            }).catch(e => { alert("Error Occurred!")})
+            )
+            .catch(error => {
+            alert("Error Occurred!");
+            })
+    }
+  
 </script>
 
 
@@ -40,7 +80,7 @@
     </div>
     <div class="navbar-center hidden lg:flex">
       <ul class="menu menu-horizontal px-1">
-        <li><a href="/levels">Levels</a></li>
+        <li><a href="/frq">FRQ</a></li>
         <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
         <li tabindex="0">
           <!-- svelte-ignore a11y-missing-attribute -->
@@ -69,9 +109,7 @@
               </div>
             </label>
             <ul tabindex="0" class="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
-              <li><a href="/" >Profile</a></li>
-              <li><a href="/" >Settings</a></li>
-              <li><a href="/" >Logout</a></li>
+              <li><button on:click={Logout} >Logout</button></li>
             </ul>
           </div>
         {:else}
