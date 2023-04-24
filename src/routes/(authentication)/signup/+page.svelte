@@ -7,7 +7,8 @@
 
     async function post() {
         // /api/login/getYourUser
-		fetch("https://monkeybackend.rohanj.dev/api/user/createPerson", {
+        if (password == confirmPassword) {
+            fetch("https://monkeybackend.rohanj.dev/api/user/createPerson", {
             method: 'POST',
             credentials: 'include',
             headers: {
@@ -20,11 +21,15 @@
                 response.json().then(data => {
                 if (data.err) alert(data.err);
                 else window.location.href = '/login';
-            }).catch(e => { alert("error occurred!")})
+            }).catch(e => { alert("Error Occurred!")})
             )
             .catch(error => {
-            alert("error occurred!");
+            alert("Error Occurred!");
             })
+        }else {
+            alert("Passwords don't match!");
+        }
+		
 	}
 
 </script>
