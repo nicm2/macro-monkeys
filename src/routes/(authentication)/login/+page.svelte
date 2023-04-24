@@ -17,7 +17,7 @@
                 response.json().then(data => {
                 if (data.err) alert(data.err);
                 else window.location.href = '/';
-            }).catch(e => { })
+            }).catch(e => { window.location.href = '/' })
             )
             .catch(error => {
             alert("error occurred!");
