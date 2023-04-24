@@ -1,4 +1,4 @@
-<div class="flex flex-col w-screen h-screen justify-center gap-10 bg-green-600">
+<div class="flex flex-col w-screen h-screen justify-start py-24 gap-10 bg-green-600">
 
     <div class="flex self-center w-96 md:w-1/2 gap-8 h-fit">
 
@@ -9,7 +9,7 @@
         
         </div>
 
-        <div class="flex flex-col bg-yellow-300 border-yellow-600 border-2 rounded-lg shadow-xl w-full h-full self-center p-8 text-2xl text-center font-bold text-yellow-600">
+        <div class="flex flex-col bg-yellow-300 border-yellow-600 border-2 rounded-lg shadow-xl w-full h-fit self-center p-8 text-2xl text-center font-bold text-yellow-600">
     
             <!-- Title for quiz -->
             <p>Title for level that is descriptive of its content</p>

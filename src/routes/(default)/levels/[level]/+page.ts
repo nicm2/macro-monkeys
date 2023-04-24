@@ -3,7 +3,7 @@ import { error } from '@sveltejs/kit';
 /** @type {import('./$types').PageLoad} */
 export async function load({ params, fetch, page }: any) {
 
-	const level = await fetch(`backendlink${params.level}`)
+	const level = await fetch(`monkeybackend.rohanj.dev/${params.level}`)
 	
     	.then( (response: any) => {
 			const data = response.json()
