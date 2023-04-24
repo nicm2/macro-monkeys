@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 
   let authenticated = false;
   
@@ -15,12 +15,12 @@
             })
             .then(response =>
                 response.json().then(data => {
-                  if (data.err) alert(data.err);
+                  if (data.err) authenticated = false;
                   else authenticated = true;
-            }).catch(e => { alert("Error Occurred!")})
+            }).catch(e => { })
             )
             .catch(error => {
-            alert("Error Occurred!");
+            
             })
     }
 
