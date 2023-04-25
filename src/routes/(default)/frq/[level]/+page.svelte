@@ -46,6 +46,8 @@
             alert("Error Occurred!");
         })
     }
+
+    GetCode();
         
 
 </script>
