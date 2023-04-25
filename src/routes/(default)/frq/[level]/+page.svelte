@@ -3,6 +3,7 @@
     /** @type {import('./$types').PageData} */
     export let data: any;
     let code: String;
+    let prevCode: String;
 
     async function RunCode () {
         fetch("https://monkeybackend.rohanj.dev/api/code/attemptLevel", {
@@ -23,6 +24,27 @@
             .catch(error => {
             alert("Error Occurred!");
             })
+    }
+
+    async function GetCode() {
+        fetch("https://monkeybackend.rohanj.dev/api/code/getSnippet", {
+            method: 'POST',
+            credentials: 'include',
+            headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({levelNumber: data.levelNumber})
+            })
+            .then(response =>
+                response.json().then(data => {
+                if (data.err) alert(data.err);
+                else code = data.code;
+            }).catch(e => { alert("Error Occurred!")})
+            )
+            .catch(error => {
+            alert("Error Occurred!");
+        })
     }
         
 
