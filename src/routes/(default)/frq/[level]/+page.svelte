@@ -48,7 +48,7 @@
     
     </div>
 
-    <div class="flex flex-col bg-green-700 border-green-800 border-2 rounded-lg shadow-xl w-fit md:w-1/2 h-96 self-center p-8 justify-center gap-8">
+    <div class="flex flex-col bg-green-700 border-green-800 border-2 rounded-lg shadow-xl w-96 md:w-1/2 h-96 self-center p-8 justify-center gap-8">
         <textarea bind:value={code} class="textarea w-full h-full" placeholder="Code..."></textarea>
 
         <input type="submit" on:click={RunCode} value="Run" class="btn btn-primary" />

@@ -4,7 +4,7 @@
 	export let link: string;
 </script>
 
-<div class="card w-96 bg-base-100 shadow-xl">
+<div class="card w-96 bg-green-700 shadow-xl">
     <div class="card-body">
       <h2 class="card-title">{title}</h2>
       <p>{text}</p>

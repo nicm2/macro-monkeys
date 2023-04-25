@@ -1,5 +1,9 @@
-<div class="flex px-8 py-24 bg-green-700 h-screen w-screen">
-    <h1>Welcome to your library project</h1>
-    <p>Create your package using @sveltejs/package and preview/showcase your work with SvelteKit</p>
-    <p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<div class="flex px-8 py-24 bg-green-600 h-screen w-screen">
+
+    <div class="flex flex-col bg-green-700 border-green-800 border-2 rounded-lg shadow-xl w-96 md:w-1/2 h-fit self-center p-8">
+    
+        <p>Visit the FRQ page from the Navbar!</p>
+
+    </div>
+    
 </div>
