@@ -5,6 +5,9 @@
   export let level: string;
   let completed: Boolean;
 
+
+  Fetch();
+  
   async function Fetch () {
     fetch("https://monkeybackend.rohanj.dev/api/code/getLevelList", {
         method: 'POST',
