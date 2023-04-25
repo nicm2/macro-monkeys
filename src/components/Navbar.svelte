@@ -46,7 +46,7 @@
 </script>
 
 
-<div class="navbar bg-green-800 p-2 fixed">
+<div class="navbar bg-green-800 p-2 fixed z-40">
     <div class="navbar-start">
       <!-- svelte-ignore a11y-label-has-associated-control -->
       <div class="dropdown">
