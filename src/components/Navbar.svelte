@@ -57,23 +57,7 @@
         <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
         <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
           <!-- svelte-ignore a11y-missing-attribute -->
-          <li><a>Item 1</a></li>
-          <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
-          <li tabindex="0">
-            <!-- svelte-ignore a11y-missing-attribute -->
-            
-
-            <!-- Mobile Options Menu -->
-            <a class="justify-between">
-              Parent
-              <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"/></svg>
-            </a>
-            <ul class="p-2 shadow menu menu-compact dropdown-content bg-green-800 rounded-box w-fit">
-              <li><a href="/">Submenu 1</a></li>
-              <li><a href="/">Submenu 2</a></li>
-            </ul>
-          </li>
-          <li><a href="/">Item 3</a></li>
+          <li><a href="/frq">FRQ</a></li>
         </ul>
       </div>
 
@@ -82,19 +66,6 @@
     <div class="navbar-center hidden lg:flex">
       <ul class="menu menu-horizontal px-1">
         <li><a href="/frq">FRQ</a></li>
-        <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
-        <li tabindex="0">
-          <!-- svelte-ignore a11y-missing-attribute -->
-          <a>
-            Parent
-            <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/></svg>
-          </a>
-          <ul class="p-2 shadow menu menu-compact dropdown-content bg-green-800 rounded-box w-fit">
-            <li><a href="/">Submenu 1</a></li>
-            <li><a href="/">Submenu 2</a></li>
-          </ul>
-        </li>
-        <li><a href="/">Item 3</a></li>
       </ul>
     </div>
     <div class="navbar-end">
