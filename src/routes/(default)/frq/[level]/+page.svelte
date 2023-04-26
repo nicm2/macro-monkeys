@@ -38,7 +38,7 @@
             })
             .then(response =>
                 response.json().then(data => {
-                if (data.err) alert(data.err);
+                if (data.err) console.log(data.err);
                 else (<HTMLTextAreaElement>document.getElementById("codingArea")).value = data.code; console.log(data.code);
             }).catch(e => { alert("Error Occurred!")})
             )
