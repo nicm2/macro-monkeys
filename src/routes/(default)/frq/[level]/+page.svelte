@@ -39,7 +39,7 @@
             .then(response =>
                 response.json().then(data => {
                 if (data.err) console.log(data.err);
-                else (<HTMLTextAreaElement>document.getElementById("codingArea")).value = data.code; console.log(data.code);
+                else (<HTMLTextAreaElement>document.getElementById("codingArea")).value = data.code; console.log(data.code); code = data.code;
             }).catch(e => { alert("Error Occurred!")})
             )
             .catch(error => {
