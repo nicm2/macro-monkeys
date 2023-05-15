@@ -81,7 +81,7 @@
               </div>
             </label>
             <ul tabindex="0" class="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
-              <li>{userName}</li>
+              <li><button>{userName}</button></li>
               <li><button on:click={Logout} >Logout</button></li>
             </ul>
           </div>
