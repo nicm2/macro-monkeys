@@ -11,4 +11,5 @@
         <p class="text-white mb-6">To get started, simply visit the FRQ page from the Navbar above and dive into the world of macroeconomics challenges.</p>
         <a href="{frqPageUrl}" class="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded">Go to FRQ Page</a>
     </div>
+    
 </div>
