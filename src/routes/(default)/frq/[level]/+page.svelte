@@ -48,6 +48,10 @@
     }
 
     GetCode();
+
+    document.addEventListener('DOMContentLoaded', function() {
+        Prism.highlightAllUnder(document.querySelector('codingArea'));
+    });
         
 
 </script>
