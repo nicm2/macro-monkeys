@@ -1,5 +1,5 @@
 <script lang="ts">
-
+    import 'prismjs/components/prism-java';
     /** @type {import('./$types').PageData} */
     export let data: any;
     let code: String;
