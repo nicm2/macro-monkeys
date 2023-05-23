@@ -19,7 +19,7 @@
         })
         .then(response =>
             response.json().then(data => {
-              if (data[level] == "Complete") completed = true;
+              if (data.status[level] == "Complete") completed = true;
               else completed = false;
         }).catch(e => { })
         )
