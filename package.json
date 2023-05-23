@@ -46,6 +46,7 @@
 	"types": "./dist/index.d.ts",
 	"type": "module",
 	"dependencies": {
-		"daisyui": "^2.51.3"
+		"daisyui": "^2.51.3",
+		"prismjs": "^1.29.0"
 	}
 }
