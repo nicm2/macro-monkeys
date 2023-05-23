@@ -20,6 +20,7 @@ specifiers:
 
 dependencies:
   daisyui: 2.51.3_j7yt3jd32cwenjqavrrga47yr4
+  prismjs: ^1.29.0
 
 devDependencies:
   '@playwright/test': 1.31.2
