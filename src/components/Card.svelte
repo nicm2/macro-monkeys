@@ -34,7 +34,7 @@
 </script>
 <style>
 	.category {
-		color: "yellow";
+		color: #bfb326;
 	}
 </style>
 <div class="card w-96 bg-green-700 shadow-xl border-green-800 border-2">
