@@ -2,6 +2,7 @@
   import Card from "../../../components/Card.svelte";
   // Wait for the DOM to be fully loaded
   document.addEventListener("DOMContentLoaded", function() {
+    /*
     filterSelection("all");
 
     function filterSelection(c) {
@@ -78,8 +79,9 @@
       margin-top: 20px;
       overflow: hidden;
     }
-    
+    */
     /* Style the buttons */
+    /*
     .btn {
       border: none;
       outline: none;
@@ -97,7 +99,7 @@
       color: white;
     }
     </style>
-
+    */
 <div class="flex flex-wrap w-screen h-full min-h-screen py-24 px-8 gap-10 bg-green-600">
 
     <Card title="2018 FRQ 3A" text="Run code for this FRQ" link="2018A" level="0"/>
