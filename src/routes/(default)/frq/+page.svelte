@@ -47,8 +47,8 @@
         current[0].className = current[0].className.replace(" active", "");
         this.className += " active";
       });
-    }
-  });*/
+    }*/
+  });
 </script>
 
 <div id="myBtnContainer" class="bg-green-700">
