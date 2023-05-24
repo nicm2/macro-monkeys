@@ -1,9 +1,9 @@
 <script lang="ts">
   import Card from "../../../components/Card.svelte";
   // Wait for the DOM to be fully loaded
-  document.addEventListener("DOMContentLoaded", function() {
+  /*document.addEventListener("DOMContentLoaded", function() {
     
-  /*filterSelection("all");
+  filterSelection("all");
 
     function filterSelection(c) {
       let x, i;
@@ -47,8 +47,8 @@
         current[0].className = current[0].className.replace(" active", "");
         this.className += " active";
       });
-    }*/
-  });
+    }
+  });*/
 </script>
 
 <div id="myBtnContainer" class="bg-green-700">
