@@ -1129,7 +1129,7 @@ packages:
 
   /rollup/3.19.1:
     resolution: {integrity: sha512-lAbrdN7neYCg/8WaoWn/ckzCtz+jr70GFfYdlf50OF7387HTg+wiuiqJRFYawwSPpqfqDNYqK7smY/ks2iAudg==}
-    engines: {node: '>=14.18.0', npm: '>=8.0.0'}
+    engines: {node: '>=18.16.0', npm: '>=9.5.1'}
     hasBin: true
     optionalDependencies:
       fsevents: 2.3.2
