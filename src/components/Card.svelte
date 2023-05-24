@@ -4,7 +4,7 @@
 	export let link: string;
   export let level: string;
   let completed: Boolean;
-  let categories: string[];
+  let categories: string[] = [];
 
 
   Fetch();
