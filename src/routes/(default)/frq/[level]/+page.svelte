@@ -49,10 +49,6 @@
     }
 
     GetCode();
-
-    document.addEventListener('DOMContentLoaded', function() {
-        Prism.highlightAll();
-    });
 </script>
 
 <div class="flex flex-col w-screen h-full justify-start py-24 gap-10 bg-green-600">
