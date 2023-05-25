@@ -48,9 +48,9 @@
         this.className += " active";
       });
     }
-  });
+  });*/
 </script>
-*/
+
 <div id="myBtnContainer" class="bg-green-700">
     <button class="btn active" onclick="filterSelection('all')"> Show all</button>
     <button class="btn" onclick="filterSelection('mncs')"> Methods and Control Structures</button>
