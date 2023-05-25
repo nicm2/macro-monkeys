@@ -1,5 +1,3 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.1/codemirror.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.1/codemirror.min.js"></script>
 <script lang="ts">
     /** @type {import('./$types').PageData} */
     export let data: any;
@@ -51,16 +49,7 @@
 
     GetCode();
 
-    const textarea = document.getElementById("codingArea");
-    const codeMirror = CodeMirror.fromTextArea(textarea, {
-        lineNumbers: true,
-        mode: "text/x-java",
-    });
-
-    code = codeMirror.getValue();
 </script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.1/mode/clike/clike.min.js"></script>
 
 <div class="flex flex-col w-screen h-full justify-start py-24 gap-10 bg-green-600">
     <div class="flex self-center w-96 md:w-1/2 gap-8 h-fit">
