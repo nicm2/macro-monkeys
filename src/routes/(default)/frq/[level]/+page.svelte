@@ -3,9 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.24.1/themes/prism.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.24.1/prism.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-java.min.js"></script>
 </head>
 <body>
     <script lang="ts">
@@ -97,9 +94,5 @@
             cursor: pointer;
         }
     </style>
-
-    <script>
-        Prism.highlightAll();
-    </script>
 </body>
 </html>
