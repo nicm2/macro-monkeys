@@ -19,7 +19,8 @@
             .then(response =>
                 response.json().then(data => {
                 if (data.err) alert(data.err);
-                else alert("Correct! Code runs successfully!");
+                else if (data.msg) alert(data.msg);
+                else alert("Error Occurred!");
             }).catch(e => { alert("Error Occurred!")})
             )
             .catch(error => {
