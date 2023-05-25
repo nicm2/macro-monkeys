@@ -79,13 +79,10 @@
   
     <div class="profile-info">
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed consequat accumsan nunc, in ullamcorper velit
-        tristique et. Donec in arcu et risus lacinia facilisis. Morbi in diam ullamcorper, vulputate ligula a, cursus
-        libero.
+        Statistics:
       </p>
       <p>
-        Vestibulum lobortis elit risus, ac suscipit lacus accumsan id. Phasellus feugiat mi et est vehicula, non finibus
-        turpis interdum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+        User Info:
       </p>
     </div>
   
