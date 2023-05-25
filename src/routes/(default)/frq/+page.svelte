@@ -50,7 +50,7 @@
     }
   });
 </script>
-
+*/
 <div id="myBtnContainer" class="bg-green-700">
     <button class="btn active" onclick="filterSelection('all')"> Show all</button>
     <button class="btn" onclick="filterSelection('mncs')"> Methods and Control Structures</button>
@@ -96,8 +96,7 @@
       color: white;
     }
     </style>
-    */
-    */
+
 <div class="flex flex-wrap w-screen h-full min-h-screen py-24 px-8 gap-10 bg-green-600">
 
     <Card title="2018 FRQ 3A" text="Run code for this FRQ" link="2018A" level="0"/>
