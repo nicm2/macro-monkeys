@@ -1,11 +1,9 @@
-<!-- Profile.svelte -->
 <script lang="ts">
     let authenticated = false;
     let userName = "";
-  
     Fetch();
   
-    async function Fetch() {
+    async function Fetch () {
       fetch("https://monkeybackend.rohanj.dev/api/login/getYourUser", {
         method: 'POST',
         credentials: 'include',
@@ -14,22 +12,20 @@
           'Content-Type': 'application/json'
         }
       })
-        .then(response =>
-          response.json().then(data => {
-            if (data.err) {
-              authenticated = false;
-            } else {
-              authenticated = true;
-              userName = data.name;
-            }
-          })
-        )
-        .catch(error => {
-          alert("Error occurred!");
-        });
+      .then(response =>
+        response.json().then(data => {
+          if (data.err) {
+            authenticated = false;
+          } else {
+            authenticated = true;
+            userName = data.name;
+          }
+        }).catch(e => {})
+      )
+      .catch(error => {})
     }
   
-    async function Logout() {
+    async function Logout () {
       fetch("https://monkeybackend.rohanj.dev/api/login/logout", {
         method: 'POST',
         credentials: 'include',
@@ -38,18 +34,20 @@
           'Content-Type': 'application/json'
         }
       })
-        .then(response =>
-          response.json().then(data => {
-            authenticated = false;
-          }).catch(e => { alert("Error Occurred!") })
-        )
-        .catch(error => {
+      .then(response =>
+        response.json().then(data => {
+          authenticated = false;
+        }).catch(e => {
           alert("Error Occurred!");
-        });
+        })
+      )
+      .catch(error => {
+        alert("Error Occurred!");
+      })
     }
   </script>
-  
-  <style>
+
+<style>
     body {
       margin: 0;
       padding: 0;
@@ -97,3 +95,27 @@
       background-color: #1d4ed8;
     }
   </style>
+
+  <div class="profile-container">
+    {#if authenticated}
+      <h1 class="profile-title">Welcome, {userName}!</h1>
+      <div class="profile-info">
+        <p>
+          Statistics:
+        </p>
+        <p>
+          User Info:
+        </p>
+      </div>
+      <button class="logout-button" on:click={() => { window.location.href = '/login'; }}>Logout</button>
+    {:else}
+      <h1 class="profile-title">Please log in to view your profile.</h1>
+      <div class="profile-info">
+        <p>
+          You are not authenticated.
+        </p>
+      </div>
+    {/if}
+  </div>
+  
+  
