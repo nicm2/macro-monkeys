@@ -5,6 +5,8 @@
   export let level: string;
   let completed: Boolean;
   let categories: string[] = [];
+  let passedTestcases = -1;
+  let totalTestcases = -1;
 
 
   Fetch();
@@ -20,11 +22,12 @@
         })
         .then(response =>
             response.json().then(data => {
-              if (data.status?.[level] == "Complete") completed = true;
-              else completed = false;
-	    
+              passedTestcases = data.status?.[level] !== undefined ? level.status?.[level] : -1;
 	      let curLevel = data.levels.find(e => e.number === parseInt(level));
-	      if (curLevel) categories = curLevel.categories.map(c => c.name)
+	      if (curLevel) {
+	         categories = curLevel.categories.map(c => c.name)
+		 totalTestcases = curLevel.testcases;
+	      }
         }).catch(e => { })
         )
         .catch(error => {
@@ -41,8 +44,8 @@
     <div class="card-body">
       <h2 class="card-title">{title}</h2>
       <p>{text}</p>
-      {#if completed}
-        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check absolute right-7 top-5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+      {#if passedTestcases !== -1 && totalTestcases !== -1}
+	    <p>{passedTestcases} / {totalTestcases}</p>
       {/if}
       {#each categories as category}
 	    <p class = "category">{category}</p>
