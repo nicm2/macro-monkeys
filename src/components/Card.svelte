@@ -22,7 +22,7 @@
         })
         .then(response =>
             response.json().then(data => {
-              passedTestcases = data.status?.[level] !== undefined ? level.status?.[level] : -1;
+              passedTestcases = data.status?.[level] !== undefined ? data.status?.[level] : -1;
 	      let curLevel = data.levels.find(e => e.number === parseInt(level));
 	      if (curLevel) {
 	         categories = curLevel.categories.map(c => c.name)
