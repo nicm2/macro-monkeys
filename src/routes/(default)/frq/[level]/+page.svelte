@@ -19,7 +19,8 @@
             .then(response =>
                 response.json().then(data => {
                 if (data.err) alert(data.err);
-                else alert("Correct! Code runs successfully!");
+                else if (data.msg) alert(data.msg);
+                else alert("Error Occurred!");
             }).catch(e => { alert("Error Occurred!")})
             )
             .catch(error => {
@@ -40,7 +41,7 @@
             .then(response =>
                 response.json().then(data => {
                 if (data.err) console.log(data.err);
-                else (<HTMLTextAreaElement>document.getElementById("codingArea")).value = data.code; console.log(data.code); code = data.code;
+                else { (<HTMLTextAreaElement>document.getElementById("codingArea")).value = data.snippet; console.log(data.snippet); code = data.snippet; }
             }).catch(e => { alert("Error Occurred!")})
             )
             .catch(error => {
