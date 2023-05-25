@@ -48,7 +48,7 @@
         this.className += " active";
       });
     }
-  });*/
+  });
 </script>
 
 <div id="myBtnContainer" class="bg-green-700">
