@@ -1,6 +1,4 @@
 <script lang="ts">
-//     import 'prismjs/components/prism-java';
-//     import 'prismjs';
     /** @type {import('./$types').PageData} */
     export let data: any;
     let code: string;
@@ -73,8 +71,8 @@
 
 <style>
     .textarea {
-        background-color: #fff;
-        color: #333;
+        background-color: #333;
+        color: #fff;
         border: 1px solid #ccc;
         padding: 8px;
         font-size: 14px;
