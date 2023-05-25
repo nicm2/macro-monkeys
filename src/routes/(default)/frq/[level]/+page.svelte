@@ -73,7 +73,7 @@
     .textarea {
         background-color: #333;
         color: #fff;
-        border: 1px solid #ccc;
+        border: 1px solid #333;
         padding: 8px;
         font-size: 14px;
     }
