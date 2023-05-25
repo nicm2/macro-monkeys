@@ -41,7 +41,7 @@
             .then(response =>
                 response.json().then(data => {
                 if (data.err) console.log(data.err);
-                else (<HTMLTextAreaElement>document.getElementById("codingArea")).value = data.code; console.log(data.code); code = data.code;
+                else { (<HTMLTextAreaElement>document.getElementById("codingArea")).value = data.snippet; console.log(data.snippet); code = data.snippet; }
             }).catch(e => { alert("Error Occurred!")})
             )
             .catch(error => {
