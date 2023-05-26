@@ -12,6 +12,7 @@ export function load({ params }) {
 			title = "2018 CSA FRQ 3A";
 			question = `This question involves reasoning about arrays of integers. You will write two static methods, both of which are in a class named ArrayTester.
  
+            \`\`\`java
 			public class ArrayTester { 
 			/* 
 			Returns an array containing the elements of column c of arr2D in the same order as they appear in arr2D. 
@@ -33,18 +34,21 @@ export function load({ params }) {
 			{ /* implementation not shown */ }
 			
 			} 
-			
+			\`\`\`
+        
 			Write a static method getColumn, which returns a one-dimensional array containing the elements of a single column in a two-dimensional array. The elements in the returned array should be in the same order as they appear in the given column. The notation arr2D [r] [c] represents the array element at row r and column c. 
 			The following code segment initializes an array and calls the getColumn method. 
 			int[][] arr2D = { { 0, 1, 2 } , { 3, 4, 5 } , { 6, 7, 8 } , { 9, 5, 3 } }; 
 			int[] result = ArrayTester.getColumn (arr2D, 1)
 			When the code segment has completed execution, the variable result will have the following contents: {1, 4, 7, 5} 
 			
+            \`\`\`java
 			public static int[] getColumn (int[] arr2D, int c) {
 			
-			CODE TEXTBOX
+                // YOUR CODE IS HERE
 			
 			}
+            \`\`\`
 			`;
 			levelNumber = 0;
 			break;
