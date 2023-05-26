@@ -6,9 +6,11 @@ export function load({ params }) {
 	let title: String;
 	let question: String;
 	let levelNumber: number;
+    let isMarkdown: boolean = false;
 
 	switch (params.level) {
 		case "2018A":
+            isMarkdown = true;
 			title = "2018 CSA FRQ 3A";
 			question = `
 This question involves reasoning about arrays of integers. You will write two static methods, both of which are in a class named ArrayTester.
@@ -340,6 +342,7 @@ public static int[] getColumn (int[] arr2D, int c) {
 	return {
 		title: title,
 		question: question,
-		levelNumber: levelNumber
+		levelNumber: levelNumber,
+        isMarkdown: isMarkdown,
 	};
 }

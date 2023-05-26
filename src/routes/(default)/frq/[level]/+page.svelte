@@ -62,8 +62,11 @@
 
     <div class="flex flex-col bg-green-700 border-green-800 border-2 rounded-lg shadow-xl w-96 md:w-1/2 h-fit self-center p-8">
         <!-- Question for quiz -->
-        <!-- <p style="white-space: pre-line;">{data.question}</p> -->
+        {#if data.isMarkdown}
         <SvelteMarkdown source={data.question} />
+        {:else} 
+        <p style="white-space: pre-line;">{data.question}</p>
+        {/if}
     </div>
 
     <div class="flex flex-col bg-green-700 border-green-800 border-2 rounded-lg shadow-xl w-96 md:w-1/2 h-96 self-center p-8 justify-center gap-8">
