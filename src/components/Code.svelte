@@ -8,6 +8,7 @@ pre {
     background-color: black;
     margin-top: 8px;
     margin-bottom: 10px;
+    padding: 3px;
 }
 </style>
 
