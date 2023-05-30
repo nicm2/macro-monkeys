@@ -350,7 +350,7 @@ Write the Crossword constructor. The constructor should initialize the crossword
 
 \`\`\`
 public Crossword(boolean[][] blackSquares) {
-	?/ YOUR CODE IS INSERTED HERE
+	// YOUR CODE IS INSERTED HERE
 }	
 \`\`\`
 			`;
