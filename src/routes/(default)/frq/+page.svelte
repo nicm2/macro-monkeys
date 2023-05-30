@@ -70,6 +70,8 @@
                 let categories = level.categories.map(c => c.name);
                 levels.push({ passedTestcases, categories, totalTestcases: level.testcases, title: level.name, level: level.number.toString(), link: level.number.toString() });
               }
+              // reassign the varaible so state is updated
+              levels = [...levels];
         }).catch(e => { })
         )
         .catch(error => {
