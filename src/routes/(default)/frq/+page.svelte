@@ -49,6 +49,33 @@
       });
     }
   });*/
+  
+  let levels = [];
+  
+  fetchLevels();
+  
+  async function fetchLevels () {
+    fetch("https://monkeybackend.rohanj.dev/api/code/getLevelList", {
+        method: 'POST',
+        credentials: 'include',
+        headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+        }
+        })
+        .then(response =>
+            response.json().then(data => {
+              for (let level : data.levels) {
+                let passedTestcases = data.status?.[level.number.toString()] !== undefined ? data.status?.[level.number.toString()] : -1;
+                let categories = level.categories.map(c => c.name);
+                levels.push({ passedTestcases, categories, totalTestcases: level.testcases, title: level.name, level: level.number.toString(), link: level.number.toString() });
+              }
+        }).catch(e => { })
+        )
+        .catch(error => {
+        
+        })
+   }
 </script>
 
 <div id="myBtnContainer" class="bg-green-700">
@@ -98,19 +125,10 @@
     </style>
 
 <div class="flex flex-wrap w-screen h-full min-h-screen py-24 px-8 gap-10 bg-green-600">
-
-    <Card title="2018 FRQ 3A" text="Run code for this FRQ" link="2018A" level="0"/>
-
-    <Card title="2018 FRQ 3B" text="Run code for this FRQ" link="2018B" level="1"/>
-
-    <Card title="2017 FRQ 4A" text="Run code for this FRQ" link="2017A" level="2"/>
-
-    <Card title="2017 FRQ 4B" text="Run code for this FRQ" link="2017B" level="3"/>
-
-    <Card title="2016 FRQ A" text="Run code for this FRQ" link="2016A" level="4"/>
-
-    <Card title="2016 FRQ B" text="Run code for this FRQ" link="2016B" level="5"/>
-
-    <Card title="Extra Credit" text="Run code for this FRQ" link="extra" level="6"/>
+    {#each levels as level}
+      <Card {...level} />
+    {/each}
+  
+       
 
 </div>
