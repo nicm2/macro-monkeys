@@ -235,7 +235,7 @@ public class Square
 A partial declaration of the Crossword class is shown below. You will implement one method and the constructor in the Crossword class.
 
 \`\`\`
-public class Crossword
+public class Crossword {
 	/** Each element is a Square object with a color (black or white and a number.
 	* puzzle [r] [c] represents the square in row r, column c.
 	* There is at least one row in the puzzle.
@@ -314,7 +314,7 @@ public class Square
 A partial declaration of the Crossword class is shown below. You will implement one method and the constructor in the Crossword class.
 
 \`\`\`
-public class Crossword
+public class Crossword {
 	/** Each element is a Square object with a color (black or white and a number.
 	* puzzle [r] [c] represents the square in row r, column c.
 	* There is at least one row in the puzzle.
@@ -344,7 +344,7 @@ public class Crossword
 	}
 	// There may be instance variables, constructors, and methods that are not shown.
 }
-\`\`\`	
+\`\`\`
 
 Write the Crossword constructor. The constructor should initialize the crossword puzzle grid to have the same dimensions as the parameter blackSquares. Each element of the puzzle grid should be initialized with a reference to a Square object with the appropriate color and number. The number is positive if the square is labeled and 0 if the square is not labeled.
 
