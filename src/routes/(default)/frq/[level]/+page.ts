@@ -110,6 +110,7 @@ public static boolean isLatin (int[] square) {
 			levelNumber = 1;
 			break;
 		case "2017A":
+			isMarkdown = true;
 			title = "2017 CSA FRQ 4A";
 			question = `
 This question involves reasoning about a two-dimensional (2D) array of integers. You will write two static methods, both of which are in a single enclosing class named Successors (not shown). These methods process a 2D integer array that contains consecutive values. Each of these integers may be in any position in the 2D integer array. For example, the following 2D integer array with 3 rows and 4 columns contains the integers 5 through 16, inclusive. 
