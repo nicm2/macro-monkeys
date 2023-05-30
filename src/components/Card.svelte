@@ -2,38 +2,10 @@
 	export let title: string;
 	export let text: string;
 	export let link: string;
-  export let level: string;
-  let completed: Boolean;
-  let categories: string[] = [];
-  let passedTestcases = -1;
-  let totalTestcases = -1;
-
-
-  Fetch();
-  
-  async function Fetch () {
-    fetch("https://monkeybackend.rohanj.dev/api/code/getLevelList", {
-        method: 'POST',
-        credentials: 'include',
-        headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-        }
-        })
-        .then(response =>
-            response.json().then(data => {
-              passedTestcases = data.status?.[level] !== undefined ? data.status?.[level] : -1;
-	      let curLevel = data.levels.find(e => e.number === parseInt(level));
-	      if (curLevel) {
-	         categories = curLevel.categories.map(c => c.name)
-		 totalTestcases = curLevel.testcases;
-	      }
-        }).catch(e => { })
-        )
-        .catch(error => {
-        
-        })
-    }
+	export let level: string;
+	export let categories: string[] = [];
+	export let passedTestcases = -1;
+	export let totalTestcases = -1;
 </script>
 <style>
 	.category {
