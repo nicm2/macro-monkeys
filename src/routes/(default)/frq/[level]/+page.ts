@@ -60,6 +60,7 @@ public static int[] getColumn (int[] arr2D, int c) {
 			levelNumber = 0;
 			break;
 		case "2018B":
+			isMarkdown = true;
 			title = "2018 CSA FRQ 3B";
 			question = `
 This question involves reasoning about arrays of integers. You will write two static methods, both of which are in a class named **ArrayTester**.
