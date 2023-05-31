@@ -53,6 +53,10 @@
 						.catch((e) => {})
 				)
 				.catch((error) => {});
+
+            if (error == '') {
+                window.location.href = '/profile';
+            }
 		}
 	}
 
