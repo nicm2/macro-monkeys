@@ -7,6 +7,8 @@ This project aims to enhance our existing CS problem-solving platform by expandi
 
 [Backend Repo](https://github.com/supermengman/monkeybackendrepo)
 
+Visit the deployed site: https://monkeygame.rohanj.dev/
+
 ## Features
 
 1. **Expanded Topic Coverage:** The platform will include a wider range of topics besides 2D Arrays/Arrays. Users will be able to explore and solve problems related to various CS concepts.
