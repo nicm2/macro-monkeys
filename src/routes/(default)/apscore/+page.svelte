@@ -29,7 +29,7 @@
     }
 </style>
 
-<div class="flex flex-wrap w-screen h-full min-h-screen py-24 px-8 gap-10 bg-green-600">
+<div class="flex flex-wrap justify-center w-screen h-full min-h-screen py-24 px-8 gap-10 bg-green-600">
 
 <p class="center-text">
     Predicted AP Score: {score}
