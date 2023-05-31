@@ -21,9 +21,17 @@
     APScore()
 </script>
 
+<style>
+    .text{
+        font-size: 8em;
+        font-weight: bold;
+        text-align: center;
+    }
+</style>
+
 <div class="flex flex-wrap w-screen h-full min-h-screen py-24 px-8 gap-10 bg-green-600">
 
-<p>
-    {score}
+<p class="text">
+    Predicted AP Score: {score}
 </p>
 </div>
