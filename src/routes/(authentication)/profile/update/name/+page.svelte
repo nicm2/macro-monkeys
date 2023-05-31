@@ -2,6 +2,7 @@
     let authenticated = false;
     let userName = "";
     let updatedName = "";
+    let error = "";
     Fetch();
   
     async function Fetch () {
@@ -38,11 +39,10 @@
       })
       .then(response =>
         response.json().then(data => {
-          if (data.err) {
-            authenticated = false;
+          if (data.err != false) {
+            error = data.err;
           } else {
-            authenticated = true;
-            userName = data.name;
+            userName = updatedName;
           }
         }).catch(e => {})
       )
@@ -62,6 +62,8 @@
         <input bind:value={updatedName} type="text" placeholder={userName} class="input w-full max-w-xs my-4 " />
         <input type="button" value="Update" class="btn btn-primary my-4 w-full" on:click={updateUsername} />
       </div>
+
+      <p class="text-red-500 text-xs italic">{error}</p>
     {:else}
       <h1 class="profile-title">Please log in to view your profile.</h1>
       <div class="profile-info">
