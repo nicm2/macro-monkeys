@@ -105,7 +105,7 @@
         <li><button>{userName}</button></li>
         <li><a href="/profile">Profile</a></li>
         <li><button on:click={Logout}>Logout</button></li>
-        <li><button on:click={APScore}>AP Score</button></li> <!-- Added AP Score button -->
+        <li><a href="/apscore">AP Score</a></li>
       </ul>
     </div>
     {:else}
