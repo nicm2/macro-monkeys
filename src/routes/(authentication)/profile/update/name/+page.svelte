@@ -59,7 +59,7 @@
         </p>
       </div>
       <div class="update-profile-field">
-        <input bind:value={updatedName} type="text" placeholder={userName} class="input w-full max-w-xs " />
+        <input bind:value={updatedName} type="text" placeholder={userName} class="input w-full max-w-xs my-4 " />
         <input type="button" value="Update" class="btn btn-primary my-4 w-full" on:click={updateUsername} />
       </div>
     {:else}

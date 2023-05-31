@@ -81,9 +81,10 @@
 				bind:value={currentPassword}
 				type="text"
 				placeholder="Current Password"
-				class="input w-full max-w-xs "
+				class="input w-full max-w-xs my-8"
 			/>
-			<input type="text" placeholder="New Password" class="input w-full max-w-xs " />
+			<input type="text" placeholder="New Password" class="input w-full max-w-xs my-4" />
+            <br>
 			<input
 				bind:value={updatedPassword}
 				type="text"
