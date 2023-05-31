@@ -43,6 +43,7 @@
             error = data.err;
           } else {
             userName = updatedName;
+            error = "";
           }
         }).catch(e => {})
       )
