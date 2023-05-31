@@ -76,15 +76,15 @@
 		<div class="update-profile-field">
 			<input
 				bind:value={currentPassword}
-				type="text"
+				type="password"
 				placeholder="Current Password"
 				class="input w-full max-w-xs my-8"
 			/>
-			<input type="text" placeholder="New Password" class="input w-full max-w-xs my-4" />
+			<input type="password" placeholder="New Password" class="input w-full max-w-xs my-4" />
             <br>
 			<input
 				bind:value={updatedPassword}
-				type="text"
+				type="password"
 				placeholder="Retype New Password"
 				class="input w-full max-w-xs "
 			/>
