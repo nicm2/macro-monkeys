@@ -107,7 +107,9 @@
           User Info:
         </p>
       </div>
-      <button class="btn btn-primary my-4 w-full" on:click = {() => { window.location.href = '/profile/update'; }}>Update User Info</button>
+      <a href="/profile/update">
+        <button class="btn btn-primary my-4 w-full">Update User Info</button>
+      </a>
       <button class="logout-button" on:click={() => { window.location.href = '/login'; }}>Logout</button>
     {:else}
       <h1 class="profile-title">Please log in to view your profile.</h1>
