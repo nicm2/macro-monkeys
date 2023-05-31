@@ -42,25 +42,6 @@
             alert("Error Occurred!");
             })
     }
-
-    async function APScore () {
-        fetch("https://monkeybackend.rohanj.dev/api/predictor/apscore", {
-            method: 'POST',
-            credentials: 'include',
-            headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-            }
-            })
-            .then(response =>
-                response.json().then(data => {
-                authenticated = false;
-            }).catch(e => { alert("Error Occurred!")})
-            )
-            .catch(error => {
-            alert("Error Occurred!");
-            })
-    }
   
 </script>
 
