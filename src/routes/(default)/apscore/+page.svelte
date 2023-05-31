@@ -23,7 +23,7 @@
 
 <style>
     .text{
-        font-size: 8em;
+        font-size: 6em;
         font-weight: bold;
         text-align: center;
     }
