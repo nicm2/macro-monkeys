@@ -33,7 +33,7 @@
 
 	async function updatePassword() {
 		if (validate()) {
-			fetch('https://monkeybackend.rohanj.dev/api/login/updatePassword', {
+			fetch('https://monkeybackend.rohanj.dev/api/user/updatePassword', {
 				method: 'POST',
 				credentials: 'include',
 				headers: {

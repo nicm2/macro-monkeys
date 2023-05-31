@@ -28,7 +28,7 @@
     }
 
     async function updateUsername() {
-      fetch("https://monkeybackend.rohanj.dev/api/login/updateUsername", {
+      fetch("https://monkeybackend.rohanj.dev/api/user/updateUsername", {
         method: 'POST',
         credentials: 'include',
         headers: {
