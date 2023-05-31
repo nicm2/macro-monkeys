@@ -22,7 +22,7 @@
 </script>
 
 <style>
-    .text{
+    .center-text{
         font-size: 6em;
         font-weight: bold;
         text-align: center;
@@ -31,7 +31,7 @@
 
 <div class="flex flex-wrap w-screen h-full min-h-screen py-24 px-8 gap-10 bg-green-600">
 
-<p class="text">
+<p class="center-text">
     Predicted AP Score: {score}
 </p>
 </div>
