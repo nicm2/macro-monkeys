@@ -18,6 +18,7 @@
             alert("Error Occurred!");
             })
     }
+    APScore()
 </script>
 
 <div class="flex flex-wrap w-screen h-full min-h-screen py-24 px-8 gap-10 bg-green-600">
