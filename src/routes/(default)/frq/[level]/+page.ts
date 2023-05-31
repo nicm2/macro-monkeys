@@ -17,7 +17,7 @@ export async function load({ params }) {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ level: parseInt(params.level) })
+        body: JSON.stringify({ number: parseInt(params.level) })
     })
 
     if (result.status != 200) {
