@@ -46,12 +46,9 @@
 					response
 						.json()
 						.then((data) => {
-							if (data.err) {
-								authenticated = false;
-							} else {
-								authenticated = true;
-								userName = data.name;
-							}
+							if (data.err != false) {
+                                error = data.err;
+							} 
 						})
 						.catch((e) => {})
 				)
