@@ -1,2 +1,9 @@
-<button class="btn btn-primary my-4 w-full" on:click = {() => { window.location.href = '/profile/update/name'; }}>Update Name</button>
-<button class="btn btn-primary my-4 w-full" on:click = {() => { window.location.href = '/profile/update/password'; }}>Update Password</button>
+
+<a href = "/profile/update/name">
+    <button class="btn btn-primary my-4 w-full">Update Name</button>
+</a>
+<a href = "/profile/update/password">
+    <button class="btn btn-primary my-4 w-full">Update Password</button>
+</a>
+
+<a href = "/profile">Back to Profile</a>
