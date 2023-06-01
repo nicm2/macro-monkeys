@@ -5,6 +5,8 @@
     export let data: any;
     let code: string;
     let prevCode: string;
+    const lastSegmentOfUrl = this.href.substring(this.href.lastIndexOf('/') + 1);
+    let codeLocalStorageName = "code" + lastSegmentOfUrl;
 
     async function RunCode() {
         fetch("https://monkeybackend.rohanj.dev/api/code/attemptLevel", {
@@ -28,13 +30,13 @@
             })
 
         // once sent, delete code from local storage
-        localStorage.setItem("code", "");
+        localStorage.setItem(codeLocalStorageName, "");
     }
 
     async function GetCode() {
         // if there is code in local storage, set that instead
-        if (localStorage.getItem("code") != "" && localStorage.getItem("code") != null) {
-            code = localStorage.getItem("code");
+        if (localStorage.getItem(codeLocalStorageName) != "" && localStorage.getItem(codeLocalStorageName) != null) {
+            code = localStorage.getItem(codeLocalStorageName);
             (<HTMLTextAreaElement>document.getElementById("codingArea")).value = code;
             return;
         }
@@ -62,7 +64,7 @@
     GetCode();
 
     async function SaveCodeToLocalStorage() {
-        localStorage.setItem("code", code);
+        localStorage.setItem(codeLocalStorageName, code);
     }
 
 
