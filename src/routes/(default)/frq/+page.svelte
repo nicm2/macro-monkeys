@@ -51,6 +51,7 @@
   });*/
   
   let levels = [];
+  let selectedCategory = null;
   
   fetchLevels();
   
@@ -77,6 +78,11 @@
         .catch(error => {
         
         })
+   }
+
+   // Add a function to change the selected category
+   function selectCategory(category) {
+       selectedCategory = category;
    }
 </script>
 
@@ -127,10 +133,18 @@
     </style>
 
 <div class="flex flex-wrap w-screen h-full min-h-screen py-24 px-8 gap-10 bg-green-600">
-    {#each levels as level}
-      <Card {...level} />
-    {/each}
+  <!-- Add buttons for each category -->
+  <div class="categories">
+      <button on:click={() => selectCategory(null)}>All</button>
+      {#each categories as category}
+          <button on:click={() => selectCategory(category)}>{category}</button>
+      {/each}
+  </div>
   
-       
+  {#each levels as level (level.level)}
+    {#if !selectedCategory || level.categories.includes(selectedCategory)}
+      <Card {...level} />
+    {/if}
+  {/each}
 
 </div>
