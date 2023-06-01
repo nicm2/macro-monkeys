@@ -1,6 +1,7 @@
 <script lang="ts">
     /** @type {import('./$types').PageData} */
     import SvelteMarkdown from 'svelte-markdown';
+    import { onMount } from 'svelte';
     import Code from '../../../../components/Code.svelte';
     export let data: any;
     let code: string;
@@ -36,7 +37,7 @@
     async function GetCode() {
         // if there is code in local storage, set that instead
         if (localStorage.getItem(codeLocalStorageName) != "" && localStorage.getItem(codeLocalStorageName) != null) {
-            code = localStorage.getItem(codeLocalStorageName);
+            code = localStorage.getItem(codeLocalStorageName)!;
             (<HTMLTextAreaElement>document.getElementById("codingArea")).value = code;
             return;
         }
@@ -61,7 +62,7 @@
         })
     }
 
-    GetCode();
+    onMount(GetCode);
 
     async function SaveCodeToLocalStorage() {
         localStorage.setItem(codeLocalStorageName, code);
