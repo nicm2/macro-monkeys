@@ -5,8 +5,6 @@
     export let data: any;
     let code: string;
     let prevCode: string;
-    localStorage.setItem("code", "");
-    let codeChanged = false;
 
     async function RunCode() {
         fetch("https://monkeybackend.rohanj.dev/api/code/attemptLevel", {
@@ -35,7 +33,7 @@
 
     async function GetCode() {
         // if there is code in local storage, set that instead
-        if (localStorage.getItem("code") != "") {
+        if (localStorage.getItem("code") != "" && localStorage.getItem("code") != null) {
             code = localStorage.getItem("code");
             (<HTMLTextAreaElement>document.getElementById("codingArea")).value = code;
             return;
