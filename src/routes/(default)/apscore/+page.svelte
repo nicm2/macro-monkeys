@@ -42,7 +42,7 @@
 <p class="center-text">
     {#if loading}
         loading
-    {:else if score > 0)
+    {:else if score > 0}
         Predicted AP Score: {score}
     {:else}
         Error: {err}
