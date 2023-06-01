@@ -5,7 +5,7 @@
     export let data: any;
     let code: string;
     let prevCode: string;
-    const lastSegmentOfUrl = this.href.substring(this.href.lastIndexOf('/') + 1);
+    const lastSegmentOfUrl = window.location.href.split("/").pop();
     let codeLocalStorageName = "code" + lastSegmentOfUrl;
 
     async function RunCode() {
