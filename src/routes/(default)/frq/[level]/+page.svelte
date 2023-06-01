@@ -5,6 +5,8 @@
     export let data: any;
     let code: string;
     let prevCode: string;
+    localStorage.setItem("code", "");
+    let codeChanged = false;
 
     async function RunCode() {
         fetch("https://monkeybackend.rohanj.dev/api/code/attemptLevel", {
@@ -26,9 +28,19 @@
             .catch(error => {
             alert("Error Occurred!");
             })
+
+        // once sent, delete code from local storage
+        localStorage.setItem("code", "");
     }
 
     async function GetCode() {
+        // if there is code in local storage, set that instead
+        if (localStorage.getItem("code") != "") {
+            code = localStorage.getItem("code");
+            (<HTMLTextAreaElement>document.getElementById("codingArea")).value = code;
+            return;
+        }
+
         fetch("https://monkeybackend.rohanj.dev/api/code/getSnippet", {
             method: 'POST',
             credentials: 'include',
@@ -51,6 +63,11 @@
 
     GetCode();
 
+    async function SaveCodeToLocalStorage() {
+        localStorage.setItem("code", code);
+    }
+
+
 </script>
 
 <div class="flex flex-col w-screen h-full justify-start py-24 gap-10 bg-green-600">
@@ -71,7 +88,7 @@
     </div>
 
     <div class="flex flex-col bg-green-700 border-green-800 border-2 rounded-lg shadow-xl w-96 md:w-1/2 h-96 self-center p-8 justify-center gap-8">
-        <textarea bind:value={code} class="textarea w-full h-full" placeholder="Code..." id="codingArea"></textarea>
+        <textarea bind:value={code} on:change={SaveCodeToLocalStorage} class="textarea w-full h-full" placeholder="Code..." id="codingArea"></textarea>
         <input type="submit" on:click={RunCode} value="Run" class="btn btn-primary" />
     </div>
 </div>
