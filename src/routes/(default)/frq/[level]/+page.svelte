@@ -1,4 +1,4 @@
-<script lang="ts">
+<script lang="ts" src="https://cdn.jsdelivr.net/npm/prismjs@1.24.1/components/prism-java.min.js">
     /** @type {import('./$types').PageData} */
     import SvelteMarkdown from 'svelte-markdown';
     import { onMount } from 'svelte';
@@ -8,6 +8,7 @@
     let prevCode: string;
     const lastSegmentOfUrl = data.levelNumber;
     let codeLocalStorageName = "code" + lastSegmentOfUrl;
+    import Prism from 'prismjs';
 
     async function RunCode() {
         fetch("https://monkeybackend.rohanj.dev/api/code/attemptLevel", {
@@ -68,6 +69,9 @@
         localStorage.setItem(codeLocalStorageName, code);
     }
 
+    onMount(() => {
+        Prism.highlightAll();
+    });
 
 </script>
 
@@ -90,6 +94,7 @@
 
     <div class="flex flex-col bg-green-700 border-green-800 border-2 rounded-lg shadow-xl w-96 md:w-1/2 h-96 self-center p-8 justify-center gap-8">
         <textarea bind:value={code} on:keyup={SaveCodeToLocalStorage} class="textarea w-full h-full" placeholder="Code..." id="codingArea"></textarea>
+        <pre><code class="language-java">{code}</code></pre>
         <input type="submit" on:click={RunCode} value="Run" class="btn btn-primary" />
     </div>
 </div>
@@ -110,5 +115,10 @@
         padding: 8px 16px;
         font-size: 16px;
         cursor: pointer;
+    }
+
+    pre {
+    background-color: #f5f5f5;
+    padding: 10px;
     }
 </style>
