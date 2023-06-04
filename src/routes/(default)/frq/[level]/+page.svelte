@@ -1,4 +1,4 @@
-<script lang="ts">
+<script lang="ts" src="https://cdn.jsdelivr.net/npm/highlight.js">
     /** @type {import('./$types').PageData} */
     import SvelteMarkdown from 'svelte-markdown';
     import { onMount } from 'svelte';
