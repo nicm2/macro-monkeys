@@ -121,7 +121,7 @@
   
     .textarea {
       background-color: #333;
-      color: #fff;
+      color: #78ba42;
       border: 1px solid #333;
       padding: 8px;
       font-size: 14px;
@@ -137,7 +137,7 @@
     }
   
     pre {
-      background-color: #f5f5f5;
+      background-color: #9c3a3a;
       padding: 10px;
     }
   </style>
