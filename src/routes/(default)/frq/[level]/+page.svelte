@@ -9,6 +9,7 @@
     const lastSegmentOfUrl = data.levelNumber;
     let codeLocalStorageName = "code" + lastSegmentOfUrl;
     import Prism from 'prismjs';
+    let isInputFocused = false;
 
     async function RunCode() {
         fetch("https://monkeybackend.rohanj.dev/api/code/attemptLevel", {
@@ -92,14 +93,28 @@
         {/if}
     </div>
 
-    <div class="flex flex-col bg-green-700 border-green-800 border-2 rounded-lg shadow-xl w-96 md:w-1/2 h-96 self-center p-8 justify-center gap-8">
-        <textarea bind:value={code} on:keyup={SaveCodeToLocalStorage} class="textarea w-full h-full" placeholder="Code..." id="codingArea"></textarea>
+    <div class="flex flex-col bg-green-700 border-green-800 border-2 rounded-lg shadow-xl w-96 md:w-1/2 h-96 self-center p-8 justify-center gap-8">\
+        <textarea
+            bind:value={code}
+            on:keyup={SaveCodeToLocalStorage}
+            class="textarea w-full h-full"
+            placeholder="Code..."
+            id="codingArea"
+            class:isInputFocused
+            on:focus={() => isInputFocused = true}
+            on:blur={() => isInputFocused = false}
+        ></textarea>
         <pre><code class="language-java">{code}</code></pre>
         <input type="submit" on:click={RunCode} value="Run" class="btn btn-primary" />
     </div>
 </div>
 
 <style>
+    .textarea:focus {
+        border-color: #007bff;
+      box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    }
+    
     .textarea {
         background-color: #333;
         color: #fff;
