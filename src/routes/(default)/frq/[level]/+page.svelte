@@ -96,14 +96,16 @@
     <div class="flex flex-col bg-green-700 border-green-800 border-2 rounded-lg shadow-xl w-96 md:w-1/2 h-96 self-center p-8 justify-center gap-8">
         <div class="relative">
             <textarea
-                bind:value={code}
-                on:input={SaveCodeToLocalStorage}
-                class="textarea w-full h-full bg-transparent"
-                placeholder="Code..."
-                id="codingArea"
-                on:focus={() => isInputFocused = true}
-                on:blur={() => isInputFocused = false}
-            ></textarea>
+    bind:value={code}
+    on:input={SaveCodeToLocalStorage}
+    class="textarea w-full h-full bg-transparent border-0 p-4"
+    placeholder="Code..."
+    id="codingArea"
+    on:focus={() => isInputFocused = true}
+    on:blur={() => isInputFocused = false}
+    style="outline: none;"
+></textarea>
+
             <div class="absolute top-0 left-0 right-0 bottom-0 pointer-events-none transition-colors duration-200 ease-in-out" 
                 class:class={isInputFocused ? 'bg-yellow-100' : 'bg-transparent'}>
             </div>
