@@ -4,8 +4,8 @@
         "rohanj"
     ],
     "highlight.decorations": {
-        "java": {
-            "editor": "input"
+        "svelte": {
+            "textarea": "java"
         }
     }
 }
