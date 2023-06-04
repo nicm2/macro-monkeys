@@ -9,6 +9,7 @@
     const lastSegmentOfUrl = data.levelNumber;
     let codeLocalStorageName = "code" + lastSegmentOfUrl;
     import Prism from 'prismjs';
+    import 'prismjs/components/prism-java';
     let isInputFocused = false;
   
     async function RunCode() {
@@ -96,7 +97,7 @@
         <textarea
           bind:value={code}
           on:input={SaveCodeToLocalStorage}
-          class="textarea w-full h-full bg-transparent border-0 p-4"
+          class="textarea w-full h-full bg-transparent border-0 p-4 language-java"
           placeholder="Code..."
           id="codingArea"
           on:focus={() => isInputFocused = true}
@@ -108,7 +109,7 @@
           class:class={isInputFocused ? 'bg-yellow-100' : 'bg-transparent'}>
         </div>
       </div>
-      <pre><code class="language-java">{code}</code></pre>
+      <code class="language-java">{code}</code>
       <input type="submit" on:click={RunCode} value="Run" class="btn btn-primary" />
     </div>
   </div>
@@ -136,9 +137,11 @@
       cursor: pointer;
     }
   
-    pre {
+    code {
       background-color: #9c3a3a;
       padding: 10px;
+      color: #fff;
+      font-family: 'Courier New', Courier, monospace;
     }
   </style>
   
