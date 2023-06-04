@@ -68,7 +68,16 @@
         localStorage.setItem(codeLocalStorageName, code);
     }
 
+    onMount(() => {
+        const textarea = document.getElementById("codingArea");
+        // Register a listener to update the code variable on input
+        textarea.addEventListener("input", () => {
+            code = textarea.value;
+        });
 
+        // Apply syntax highlighting on mount
+        hljs.highlightBlock(textarea);
+    });
 </script>
 
 <div class="flex flex-col w-screen h-full justify-start py-24 gap-10 bg-green-600">
