@@ -14,21 +14,21 @@
             method: 'POST',
             credentials: 'include',
             headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
             },
-            body: JSON.stringify({levelNumber: data.levelNumber, code: code})
-            })
-            .then(response =>
-                response.json().then(data => {
+            body: JSON.stringify({ levelNumber: data.levelNumber, code: code })
+        })
+        .then(response =>
+            response.json().then(data => {
                 if (data.err) alert(data.err);
                 else if (data.msg) alert(data.msg);
                 else alert("Error Occurred!");
-            }).catch(e => { alert("Error Occurred!")})
-            )
-            .catch(error => {
+            }).catch(e => { alert("Error Occurred!") })
+        )
+        .catch(error => {
             alert("Error Occurred!");
-            })
+        });
 
         // once sent, delete code from local storage
         localStorage.setItem(codeLocalStorageName, "");
@@ -46,20 +46,23 @@
             method: 'POST',
             credentials: 'include',
             headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
             },
-            body: JSON.stringify({level: data.levelNumber})
-            })
-            .then(response =>
-                response.json().then(data => {
-                if (data.err) console.log(data.err);
-                else { (<HTMLTextAreaElement>document.getElementById("codingArea")).value = data.snippet; console.log(data.snippet); code = data.snippet; }
-            }).catch(e => { alert("Error Occurred!")})
-            )
-            .catch(error => {
-            alert("Error Occurred!");
+            body: JSON.stringify({ level: data.levelNumber })
         })
+        .then(response =>
+            response.json().then(data => {
+                if (data.err) console.log(data.err);
+                else {
+                    (<HTMLTextAreaElement>document.getElementById("codingArea")).value = data.snippet;
+                    code = data.snippet;
+                }
+            }).catch(e => { alert("Error Occurred!") })
+        )
+        .catch(error => {
+            alert("Error Occurred!");
+        });
     }
 
     onMount(GetCode);
@@ -69,14 +72,11 @@
     }
 
     onMount(() => {
-        const textarea = document.getElementById("codingArea");
-        // Register a listener to update the code variable on input
-        textarea.addEventListener("input", () => {
-            code = textarea.value;
-        });
-
-        // Apply syntax highlighting on mount
-        hljs.highlightBlock(textarea);
+        // Apply syntax highlighting to the input box
+        const codeTextArea = document.getElementById("codingArea");
+        if (codeTextArea) {
+            hljs.highlightBlock(codeTextArea);
+        }
     });
 </script>
 
@@ -91,8 +91,8 @@
     <div class="flex flex-col bg-green-700 border-green-800 border-2 rounded-lg shadow-xl w-96 md:w-1/2 h-fit self-center p-8">
         <!-- Question for quiz -->
         {#if data.isMarkdown}
-        <SvelteMarkdown source={data.question} renderers={{code: Code}} />
-        {:else} 
+        <SvelteMarkdown source={data.question} renderers={{ code: Code }} />
+        {:else}
         <p style="white-space: pre-line;">{data.question}</p>
         {/if}
     </div>
@@ -110,6 +110,7 @@
         border: 1px solid #333;
         padding: 8px;
         font-size: 14px;
+        caret-color: #fff;
     }
 
     .btn {
