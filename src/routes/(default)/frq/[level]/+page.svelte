@@ -1,4 +1,4 @@
-<script lang="ts" src="https://cdn.jsdelivr.net/npm/highlight.js">
+<script lang="ts" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js">
     /** @type {import('./$types').PageData} */
     import SvelteMarkdown from 'svelte-markdown';
     import { onMount } from 'svelte';
@@ -75,7 +75,7 @@
         // Apply syntax highlighting to the input box
         const codeTextArea = document.getElementById("codingArea");
         if (codeTextArea) {
-            hljs.highlightBlock(codeTextArea);
+            hljs.highlightElement(codeTextArea);
         }
     });
 </script>
@@ -103,6 +103,7 @@
     </div>
 </div>
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/default.min.css">
 <style>
     .textarea {
         background-color: #333;
