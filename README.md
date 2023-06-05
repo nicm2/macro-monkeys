@@ -91,7 +91,11 @@ Follow the prompts to set up the project on Vercel. Choose the appropriate optio
 
 This command will build the project and deploy it to Vercel. The --prod flag specifies that the deployment should be made to the production environment.
 
-7. Access the deployed application:
+7. Deploy backend: [Backend Instructions](https://github.com/supermengman/monkeybackendrepo/blob/main/README.md#build-instructions-backend)
+
+After deploying backend, connect it to a domain. Then, change the api requests in this repo to use the new domain as a base.
+
+8. Access the deployed application:
 Once the deployment process is complete, Vercel will provide you with a unique URL where your application is hosted. You can access the application by visiting that URL in a web browser.
 
 Note: The exact URL and any custom domain configuration may vary based on your Vercel project settings.
