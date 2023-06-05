@@ -1,3 +1,12 @@
+## Table of Contents
+1. [Overview](#overview)
+2. [Features](#features)
+3. [Build Instructions](#build-instructions)
+4. [Technical Requirements](#technical-requirements)
+5. [Usage](#usage)
+6. [Contributing](#contributing)
+7. [License](#license)
+
 ## Team Macro Monkeys 🐒
 
 ## Overview
