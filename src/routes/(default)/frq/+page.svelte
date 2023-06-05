@@ -1,6 +1,6 @@
 <script lang="ts">
   import Card from "../../../components/Card.svelte";
-  let categories = ["2D Arrays", "Arrays", "ArrayLists"];
+  let categories = ["2D Arrays ", "Arrays ", "ArrayLists"];
   // Wait for the DOM to be fully loaded
   /*document.addEventListener("DOMContentLoaded", function() {
     
