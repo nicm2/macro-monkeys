@@ -1,6 +1,6 @@
 <script lang="ts">
   import Card from "../../../components/Card.svelte";
-  let categories = ["2D Arrays ", "Arrays ", "ArrayLists"];
+  let categories = ["2D Arrays", "Arrays", "ArrayLists"];
   // Wait for the DOM to be fully loaded
   /*document.addEventListener("DOMContentLoaded", function() {
     
@@ -87,20 +87,32 @@
    }
 </script>
 
+<style>
+  .categories {
+    margin-bottom: 20px;
+  }
+
+  .categories button {
+    background-color: white;
+    padding: 10px 15px;
+    border-radius: 4px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    border: none;
+  }
+</style>
 
 <div class="flex flex-wrap w-screen h-full min-h-screen py-24 px-8 gap-10 bg-green-600">
-  <!-- Add buttons for each category -->
   <div class="categories">
-      <button on:click={() => selectCategory(null)}>All</button>
-      {#each categories as category}
-          <button on:click={() => selectCategory(category)}>{category}</button>
-      {/each}
+    <button on:click={() => selectCategory(null)}>All</button>
+    {#each categories as category}
+      <button on:click={() => selectCategory(category)}>{category}</button>
+    {/each}
   </div>
-  
+
   {#each levels as level (level.level)}
     {#if !selectedCategory || level.categories.includes(selectedCategory)}
       <Card {...level} />
     {/if}
   {/each}
-
 </div>
