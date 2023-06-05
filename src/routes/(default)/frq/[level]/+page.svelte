@@ -71,6 +71,7 @@
     onMount(GetCode);
 
     async function SaveCodeToLocalStorage() {
+        code = code.trim(); // Trim leading and trailing whitespace
         localStorage.setItem(codeLocalStorageName, code);
         characterCount = code.length;
     }
