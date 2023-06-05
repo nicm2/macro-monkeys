@@ -88,44 +88,6 @@
 </script>
 
 
-  <style>
-    .filterDiv {
-      float: left;
-      background-color: #2196F3;
-      color: #ffffff;
-      width: 100px;
-      line-height: 100px;
-      text-align: center;
-      margin: 2px;
-      display: none;
-    }
-    
-    .show {
-      display: block;
-    }
-    
-    .container {
-      margin-top: 20px;
-      overflow: hidden;
-    }    
-    .btn {
-      border: none;
-      outline: none;
-      padding: 12px 16px;
-      background-color: #f1f1f1;
-      cursor: pointer;
-    }
-    
-    .btn:hover {
-      background-color: #ddd;
-    }
-    
-    .btn.active {
-      background-color: #666;
-      color: white;
-    }
-    </style>
-
 <div class="flex flex-wrap w-screen h-full min-h-screen py-24 px-8 gap-10 bg-green-600">
   <!-- Add buttons for each category -->
   <div class="categories">
