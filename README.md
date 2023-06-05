@@ -66,24 +66,20 @@ This project is licensed under the MIT LICENSE
 
 To build and run the project locally, follow these steps:
 
-1. Clone the repository to your local machine using the following command:
-git clone https://github.com/supermengman/macro-monkeys.git
+1. Clone the repository to your local machine using the following command: `git clone https://github.com/supermengman/macro-monkeys.git`
 
-2. Navigate to the project directory:
-cd macro-monkeys
+2. Navigate to the project directory: `cd macro-monkeys`
 
-3. Install Vercel globally by running the following command:
-npm install -g vercel
+3. Install Vercel globally by running the following command: `npm install -g vercel`
 
-4. Login to your Vercel account
-vercel login
+4. Login to your Vercel account ```vercel login```
 
-5. Configure the project settings: 
-vercel init
+5. Configure the project settings: `vercel init`
+
 Follow the prompts to set up the project on Vercel. Choose the appropriate options based on your preferences and project requirements.
 
-6. Build and deploy the project:
-vercel --prod
+6. Build and deploy the project: `vercel --prod`
+
 This command will build the project and deploy it to Vercel. The --prod flag specifies that the deployment should be made to the production environment.
 
 7. Access the deployed application:
