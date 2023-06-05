@@ -1,6 +1,6 @@
 <script lang="ts">
   import Card from "../../../components/Card.svelte";
-  let categories = ["2D Arrays ", "Arrays ", "ArrayLists"];
+  let categories = ["2D Arrays", "Arrays", "ArrayLists"];
   // Wait for the DOM to be fully loaded
   /*document.addEventListener("DOMContentLoaded", function() {
     
@@ -87,13 +87,6 @@
    }
 </script>
 
-<div id="myBtnContainer" class="bg-green-700">
-    <button class="btn active" onclick="filterSelection('all')"> Show all</button>
-    <button class="btn" onclick="filterSelection('mncs')"> Methods and Control Structures</button>
-    <button class="btn" onclick="filterSelection('classes')"> Classes</button>
-    <button class="btn" onclick="filterSelection('arrays')"> Array/ArrayList</button>
-    <button class="btn" onclick="filterSelection('2d')"> 2D Array</button>
-  </div>
 
   <style>
     .filterDiv {
