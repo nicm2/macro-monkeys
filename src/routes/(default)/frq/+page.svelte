@@ -99,6 +99,7 @@
     margin-right: 10px;
     margin-bottom: 10px;
     border: none;
+    color: green;
   }
 </style>
 
