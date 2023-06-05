@@ -1,13 +1,14 @@
 <script lang="ts" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js">
     /** @type {import('./$types').PageData} */
     import SvelteMarkdown from 'svelte-markdown';
-    import { onMount } from 'svelte';
+    import { onMount, afterUpdate } from 'svelte';
     import Code from '../../../../components/Code.svelte';
     export let data: any;
     let code: string;
     let prevCode: string;
     const lastSegmentOfUrl = data.levelNumber;
     let codeLocalStorageName = "code" + lastSegmentOfUrl;
+    let characterCount: number = 0;
 
     async function RunCode() {
         fetch("https://monkeybackend.rohanj.dev/api/code/attemptLevel", {
@@ -39,6 +40,7 @@
         if (localStorage.getItem(codeLocalStorageName) != "" && localStorage.getItem(codeLocalStorageName) != null) {
             code = localStorage.getItem(codeLocalStorageName)!;
             (<HTMLTextAreaElement>document.getElementById("codingArea")).value = code;
+            characterCount = code.length;
             return;
         }
 
@@ -57,6 +59,7 @@
                 else {
                     (<HTMLTextAreaElement>document.getElementById("codingArea")).value = data.snippet;
                     code = data.snippet;
+                    characterCount = code.length;
                 }
             }).catch(e => { alert("Error Occurred!") })
         )
@@ -69,10 +72,19 @@
 
     async function SaveCodeToLocalStorage() {
         localStorage.setItem(codeLocalStorageName, code);
+        characterCount = code.length;
     }
 
     onMount(() => {
         // Apply syntax highlighting to the input box
+        const codeTextArea = document.getElementById("codingArea");
+        if (codeTextArea) {
+            hljs.highlightElement(codeTextArea);
+        }
+    });
+
+    afterUpdate(() => {
+        // Update syntax highlighting when the code changes
         const codeTextArea = document.getElementById("codingArea");
         if (codeTextArea) {
             hljs.highlightElement(codeTextArea);
@@ -98,7 +110,8 @@
     </div>
 
     <div class="flex flex-col bg-green-700 border-green-800 border-2 rounded-lg shadow-xl w-96 md:w-1/2 h-96 self-center p-8 justify-center gap-8">
-        <textarea bind:value={code} on:keyup={SaveCodeToLocalStorage} class="textarea w-full h-full" placeholder="Code..." id="codingArea"></textarea>
+        <textarea bind:value={code} on:input={SaveCodeToLocalStorage} class="textarea w-full h-full" placeholder="Code..." id="codingArea"></textarea>
+        <div class="text-right text-gray-400">{characterCount} characters</div>
         <input type="submit" on:click={RunCode} value="Run" class="btn btn-primary" />
     </div>
 </div>
