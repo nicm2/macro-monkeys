@@ -104,7 +104,7 @@
 </style>
 
 <div class="flex flex-wrap w-screen h-full min-h-screen py-24 px-8 gap-10 bg-green-600">
-  <div class="categories flex justify-center"> <!-- Add 'justify-center' class to center the buttons -->
+  <div class="categories">
     <button on:click={() => selectCategory(null)}>All</button>
     {#each categories as category}
       <button on:click={() => selectCategory(category)}>{category}</button>
