@@ -39,8 +39,8 @@
       .then(response =>
         response.json().then(data => {
           for (let level of data.levels) {
-            let passedTestcases = data.status?.[level.number.toString()]?.testcases || -1;
-            levels.push({ passedTestcases, totalTestcases: level.testcases, title: level.name });
+            let passedTestcases = data.status?.[level.number.toString()] !== undefined ? data.status?.[level.number.toString()] : -1;
+            levels.push({ passedTestcases, totalTestcases: level.testcases, title: level.name, level: level.number.toString(), link: level.number.toString() });
           }
           levels = [...levels];
         })
