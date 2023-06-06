@@ -1,10 +1,18 @@
 <script lang="ts">
     let authenticated = false;
     let userName = "";
-    Fetch();
-  
-    async function Fetch () {
-      fetch("https://monkeybackend.rohanj.dev/api/login/getYourUser", {
+    let levels = [];
+    
+    // Wait for the DOM to be fully loaded
+    /*document.addEventListener("DOMContentLoaded", function() {
+      fetchLevels();
+    });*/
+    
+    fetchLevels();
+    
+    async function fetchLevels() {
+      // Fetch FRQ levels
+      fetch("https://monkeybackend.rohanj.dev/api/code/getLevelList", {
         method: 'POST',
         credentials: 'include',
         headers: {
@@ -12,17 +20,20 @@
           'Content-Type': 'application/json'
         }
       })
-      .then(response =>
-        response.json().then(data => {
-          if (data.err) {
-            authenticated = false;
-          } else {
-            authenticated = true;
-            userName = data.name;
-          }
-        }).catch(e => {})
-      )
-      .catch(error => {})
+        .then(response =>
+          response.json().then(data => {
+            for (let level of data.levels) {
+              let passedTestcases = data.status?.[level.number.toString()] !== undefined ? data.status?.[level.number.toString()] : -1;
+              let categories = level.categories.map(c => c.name);
+              levels.push({ passedTestcases, categories, totalTestcases: level.testcases, title: level.name, level: level.number.toString(), link: level.number.toString(), text: "Run code for this FRQ", userScore: {} });
+            }
+            // reassign the variable so state is updated
+            levels = [...levels];
+          })
+        )
+        .catch(error => {
+          // Handle error
+        });
     }
   
     async function Logout () {
@@ -103,9 +114,14 @@
         <p>
           Statistics:
         </p>
+        {#each levels as level}
         <p>
-          User Info:
+          FRQ Level: {level.title}<br/>
+          Total Testcases: {level.totalTestcases}<br/>
+          Passed Testcases: {level.passedTestcases}<br/>
+          User Score: {level.userScore.score} ({level.userScore.status})<br/>
         </p>
+      {/each}
       </div>
       <a href="/profile/update">
         <button class="btn btn-primary my-4 w-full">Update User Info</button>
@@ -120,5 +136,4 @@
       </div>
     {/if}
   </div>
-  
   

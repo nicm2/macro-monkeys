@@ -70,9 +70,9 @@
               for (let level of data.levels) {
                 let passedTestcases = data.status?.[level.number.toString()] !== undefined ? data.status?.[level.number.toString()] : -1;
                 let categories = level.categories.map(c => c.name);
-                levels.push({ passedTestcases, categories, totalTestcases: level.testcases, title: level.name, level: level.number.toString(), link: level.number.toString(), text: "Run code for this FRQ" });
+                levels.push({ passedTestcases, categories, totalTestcases: level.testcases, title: level.name, level: level.number.toString(), link: level.number.toString(), text: "Run code for this FRQ", userScore: {} });
               }
-              // reassign the varaible so state is updated
+              // reassign the variable so state is updated
               levels = [...levels];
         }).catch(e => { })
         )
@@ -87,20 +87,22 @@
    }
 </script>
 
+<div id="myBtnContainer" class="bg-green-700">
+    <button class="btn active" onclick="filterSelection('all')"> Show all</button>
+    <button class="btn" onclick="filterSelection('2D Arrays')">2D Arrays</button>
+    <button class="btn" onclick="filterSelection('Arrays')">Arrays</button>
+    <button class="btn" onclick="filterSelection('ArrayLists')">ArrayLists</button>
+</div>
 
-<div class="flex flex-wrap w-screen h-full min-h-screen py-24 px-8 gap-10 bg-green-600">
-  <!-- Add buttons for each category -->
-  <div class="categories">
-      <button on:click={() => selectCategory(null)}>All</button>
-      {#each categories as category}
-          <button on:click={() => selectCategory(category)}>{category}</button>
-      {/each}
-  </div>
-  
-  {#each levels as level (level.level)}
-    {#if !selectedCategory || level.categories.includes(selectedCategory)}
-      <Card {...level} />
-    {/if}
-  {/each}
-
+<div class="grid-container">
+    {#each levels as level}
+        {#if selectedCategory === null || level.categories.includes(selectedCategory)}
+            <Card
+                link="/code/frq/{level.link}"
+                title="{level.title}"
+                description="Pass {level.passedTestcases}/{level.totalTestcases} test cases"
+                buttonText="{level.text}"
+            />
+        {/if}
+    {/each}
 </div>
