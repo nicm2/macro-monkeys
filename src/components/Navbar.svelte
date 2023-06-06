@@ -14,6 +14,10 @@
             }
             })
             .then(response =>
+                if (response.status >= 500) {
+                   authenticated = false;
+                   return;
+                }
                 response.json().then(data => {
                   if (data.err) authenticated = false;
                   else authenticated = true; userName = data.name;
