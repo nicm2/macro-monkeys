@@ -40,8 +40,7 @@
         response.json().then(data => {
           for (let level of data.levels) {
             let passedTestcases = data.status?.[level.number.toString()] !== undefined ? data.status?.[level.number.toString()] : -1;
-            let categories = level.categories.map(c => c.name);
-            levels.push({ passedTestcases, categories, totalTestcases: level.testcases, title: level.name, level: level.number.toString(), link: level.number.toString(), text: "Run code for this FRQ" });
+            levels.push({ passedTestcases, totalTestcases: level.testcases, title: level.name, });
           }
           levels = [...levels];
         })
