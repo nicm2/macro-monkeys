@@ -132,9 +132,6 @@
       Statistics:
     </p>
     <p>
-      Score: {score}/{totalTestCases}
-    </p>
-    <p>
       User Info:
     </p>
   </div>
