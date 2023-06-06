@@ -1,8 +1,7 @@
 <script lang="ts">
   let authenticated = false;
   let userName = "";
-  let score = 0;
-  let totalTestCases = 0;
+  let levels = [];
 
   Fetch();
 
@@ -22,13 +21,38 @@
           } else {
             authenticated = true;
             userName = data.name;
-            score = data.score; // Assign the score value from the response
-            totalTestCases = data.totalTestCases; // Assign the total test cases value from the response
           }
         }).catch(e => { })
       )
       .catch(error => { })
   }
+
+  async function fetchLevels () {
+    fetch("https://monkeybackend.rohanj.dev/api/code/getLevelList", {
+        method: 'POST',
+        credentials: 'include',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        }
+      })
+      .then(response =>
+        response.json().then(data => {
+          for (let level of data.levels) {
+            let passedTestcases = data.status?.[level.number.toString()] !== undefined ? data.status?.[level.number.toString()] : -1;
+            let categories = level.categories.map(c => c.name);
+            levels.push({ passedTestcases, categories, totalTestcases: level.testcases, title: level.name, level: level.number.toString(), link: level.number.toString(), text: "Run code for this FRQ" });
+          }
+          levels = [...levels];
+        })
+        .catch(e => { })
+      )
+      .catch(error => {
+      
+      })
+  }
+
+  fetchLevels();
 
   async function Logout() {
     fetch("https://monkeybackend.rohanj.dev/api/login/logout", {
