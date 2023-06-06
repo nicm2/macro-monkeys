@@ -27,28 +27,26 @@
       .catch(error => { })
   }
 
-  async function fetchLevels () {
+  async function fetchLevels() {
     fetch("https://monkeybackend.rohanj.dev/api/code/getLevelList", {
-        method: 'POST',
-        credentials: 'include',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        }
-      })
+      method: 'POST',
+      credentials: 'include',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+    })
       .then(response =>
         response.json().then(data => {
           for (let level of data.levels) {
-            let passedTestcases = data.status?.[level.number.toString()] !== undefined ? data.status?.[level.number.toString()] : -1;
-            levels.push({ passedTestcases, totalTestcases: level.testcases, title: level.name, });
+            let passedTestcases = data.status?.[level.number.toString()]?.testcases || -1;
+            levels.push({ passedTestcases, totalTestcases: level.testcases, title: level.name });
           }
           levels = [...levels];
         })
         .catch(e => { })
       )
-      .catch(error => {
-      
-      })
+      .catch(error => { })
   }
 
   fetchLevels();
@@ -108,6 +106,11 @@
     color: #065F46;
   }
 
+  .level-info {
+    margin-bottom: 0.5rem;
+    color: #065F46;
+  }
+
   .logout-button {
     background-color: #2563EB;
     color: #fff;
@@ -126,25 +129,22 @@
 
 <div class="profile-container">
   {#if authenticated}
-  <h1 class="profile-title">Welcome, {userName}!</h1>
-  <div class="profile-info">
-    <p>
-      Statistics:
-    </p>
-    <p>
-      User Info:
-    </p>
-  </div>
-  <a href="/profile/update">
-    <button class="btn btn-primary my-4 w-full">Update User Info</button>
-  </a>
-  <button class="logout-button" on:click={() => {Logout; window.location.href = '/login'; }}>Logout</button>
+    <h1 class="profile-title">Welcome, {userName}!</h1>
+    <div class="profile-info">
+      {#each levels as level}
+        <p class="level-info">{level.title}: {level.passedTestcases}/{level.totalTestcases}</p>
+      {/each}
+    </div>
+    <a href="/profile/update">
+      <button class="btn btn-primary my-4 w-full">Update User Info</button>
+    </a>
+    <button class="logout-button" on:click={() => {Logout(); window.location.href = '/login'; }}>Logout</button>
   {:else}
-  <h1 class="profile-title">Please log in to view your profile.</h1>
-  <div class="profile-info">
-    <p>
-      You are not authenticated.
-    </p>
-  </div>
+    <h1 class="profile-title">Please log in to view your profile.</h1>
+    <div class="profile-info">
+      <p>
+        You are not authenticated.
+      </p>
+    </div>
   {/if}
 </div>
