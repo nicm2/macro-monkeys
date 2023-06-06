@@ -1,6 +1,9 @@
 <script lang="ts">
     let authenticated = false;
     let userName = "";
+    let score = 0;
+    let totalTestCases = 0;
+
     Fetch();
   
     async function Fetch () {
@@ -13,17 +16,19 @@
         }
       })
       .then(response =>
-        response.json().then(data => {
-          if (data.err) {
-            authenticated = false;
-          } else {
-            authenticated = true;
-            userName = data.name;
-          }
-        }).catch(e => {})
-      )
-      .catch(error => {})
-    }
+      response.json().then(data => {
+        if (data.err) {
+          authenticated = false;
+        } else {
+          authenticated = true;
+          userName = data.name;
+          score = data.score; // Assign the score value from the response
+          totalTestCases = data.totalTestCases; // Assign the total test cases value from the response
+        }
+      }).catch(e => {})
+    )
+    .catch(error => {})
+  }
   
     async function Logout () {
       fetch("https://monkeybackend.rohanj.dev/api/login/logout", {
@@ -98,15 +103,18 @@
 
   <div class="profile-container">
     {#if authenticated}
-      <h1 class="profile-title">Welcome, {userName}!</h1>
-      <div class="profile-info">
-        <p>
-          Statistics:
-        </p>
-        <p>
-          User Info:
-        </p>
-      </div>
+    <h1 class="profile-title">Welcome, {userName}!</h1>
+    <div class="profile-info">
+      <p>
+        Statistics:
+      </p>
+      <p>
+        Score: {score}/{totalTestCases} // Display the score and total test cases
+      </p>
+      <p>
+        User Info:
+      </p>
+    </div>
       <a href="/profile/update">
         <button class="btn btn-primary my-4 w-full">Update User Info</button>
       </a>
