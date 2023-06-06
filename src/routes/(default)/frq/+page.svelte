@@ -1,7 +1,8 @@
 <script lang="ts">
   import Card from "../../../components/Card.svelte";
   let categories = ["2D Arrays", "Arrays", "ArrayLists"];
-  // Wait for the DOM to be fully loaded
+
+    // Wait for the DOM to be fully loaded
   /*document.addEventListener("DOMContentLoaded", function() {
     
   filterSelection("all");
@@ -61,48 +62,58 @@
         method: 'POST',
         credentials: 'include',
         headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
         }
+      })
+      .then(response =>
+        response.json().then(data => {
+          for (let level of data.levels) {
+            let passedTestcases = data.status?.[level.number.toString()] !== undefined ? data.status?.[level.number.toString()] : -1;
+            let categories = level.categories.map(c => c.name);
+            levels.push({ passedTestcases, categories, totalTestcases: level.testcases, title: level.name, level: level.number.toString(), link: level.number.toString(), text: "Run code for this FRQ" });
+          }
+          levels = [...levels];
         })
-        .then(response =>
-            response.json().then(data => {
-              for (let level of data.levels) {
-                let passedTestcases = data.status?.[level.number.toString()] !== undefined ? data.status?.[level.number.toString()] : -1;
-                let categories = level.categories.map(c => c.name);
-                levels.push({ passedTestcases, categories, totalTestcases: level.testcases, title: level.name, level: level.number.toString(), link: level.number.toString(), text: "Run code for this FRQ", userScore: {} });
-              }
-              // reassign the variable so state is updated
-              levels = [...levels];
-        }).catch(e => { })
-        )
-        .catch(error => {
-        
-        })
+        .catch(e => { })
+      )
+      .catch(error => {
+      
+      })
    }
 
-   // Add a function to change the selected category
    function selectCategory(category) {
-       selectedCategory = category;
+     selectedCategory = category;
    }
 </script>
 
-<div id="myBtnContainer" class="bg-green-700">
-    <button class="btn active" onclick="filterSelection('all')"> Show all</button>
-    <button class="btn" onclick="filterSelection('2D Arrays')">2D Arrays</button>
-    <button class="btn" onclick="filterSelection('Arrays')">Arrays</button>
-    <button class="btn" onclick="filterSelection('ArrayLists')">ArrayLists</button>
-</div>
+<style>
+  .categories {
+    margin-bottom: 20px;
+  }
 
-<div class="grid-container">
-    {#each levels as level}
-        {#if selectedCategory === null || level.categories.includes(selectedCategory)}
-            <Card
-                link="/code/frq/{level.link}"
-                title="{level.title}"
-                description="Pass {level.passedTestcases}/{level.totalTestcases} test cases"
-                buttonText="{level.text}"
-            />
-        {/if}
+  .categories button {
+    background-color: white;
+    padding: 10px 15px;
+    border-radius: 4px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    border: none;
+    color: green;
+  }
+</style>
+
+<div class="flex flex-wrap w-screen h-full min-h-screen py-24 px-8 gap-10 bg-green-600">
+  <div class="categories">
+    <button on:click={() => selectCategory(null)}>All</button>
+    {#each categories as category}
+      <button on:click={() => selectCategory(category)}>{category}</button>
     {/each}
+  </div>
+
+  {#each levels as level (level.level)}
+    {#if !selectedCategory || level.categories.includes(selectedCategory)}
+      <Card {...level} />
+    {/if}
+  {/each}
 </div>
