@@ -109,7 +109,7 @@
         Statistics:
       </p>
       <p>
-        Score: {score}/{totalTestCases} // Display the score and total test cases
+        Score: {score}/{totalTestCases} 
       </p>
       <p>
         User Info:
