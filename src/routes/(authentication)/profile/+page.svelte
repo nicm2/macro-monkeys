@@ -2,7 +2,6 @@
   let authenticated = false;
   let userName = "";
   let levels = [];
-  let averageTestCases = 0;
 
   Fetch();
 
@@ -39,17 +38,10 @@
     })
       .then(response =>
         response.json().then(data => {
-          let totalTestCases = 0;
-          let totalPassedTestCases = 0;
           for (let level of data.levels) {
-            let passedTestCases = data.status?.[level.number.toString()] !== undefined ? data.status?.[level.number.toString()] : -1;
-            totalTestCases += level.totalTestcases;
-            if (passedTestCases !== -1) {
-              totalPassedTestCases += passedTestCases;
-            }
-            levels.push({ passedTestCases, totalTestCases: level.totalTestcases, title: level.name, level: level.number.toString(), link: level.number.toString() });
+            let passedTestcases = data.status?.[level.number.toString()] !== undefined ? data.status?.[level.number.toString()] : -1;
+            levels.push({ passedTestcases, totalTestcases: level.testcases, title: level.name, level: level.number.toString(), link: level.number.toString() });
           }
-          averageTestCases = totalPassedTestCases / totalTestCases;
           levels = [...levels];
         })
         .catch(e => { })
@@ -139,11 +131,8 @@
   {#if authenticated}
     <h1 class="profile-title">Welcome, {userName}!</h1>
     <div class="profile-info">
-      <p>Average Achieved Test Cases: {averageTestCases}</p>
-    </div>
-    <div class="profile-info">
       {#each levels as level (level.level)}
-        <p class="level-info">{level.title}: {level.passedTestCases}/{level.totalTestCases}</p>
+        <p class="level-info">{level.title}: {level.passedTestcases}/{level.totalTestcases}</p>
       {/each}
     </div>
     <a href="/profile/update">
