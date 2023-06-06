@@ -91,6 +91,10 @@ Follow the prompts to set up the project on Vercel. Choose the appropriate optio
 
 This command will build the project and deploy it to Vercel. The --prod flag specifies that the deployment should be made to the production environment.
 
+OR 
+
+visit vercel.com and link your github repository following the prompts on the website
+
 7. Deploy backend: [Backend Instructions](https://github.com/supermengman/monkeybackendrepo/blob/main/README.md#build-instructions-backend)
 
 After deploying backend, connect it to a domain. Then, change the api requests in this repo to use the new domain as a base.
