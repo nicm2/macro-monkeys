@@ -131,7 +131,7 @@
   {#if authenticated}
     <h1 class="profile-title">Welcome, {userName}!</h1>
     <div class="profile-info">
-      {#each levels as level}
+      {#each levels as level (level.level)}
         <p class="level-info">{level.title}: {level.passedTestcases}/{level.totalTestcases}</p>
       {/each}
     </div>
